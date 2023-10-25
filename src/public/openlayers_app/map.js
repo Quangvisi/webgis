@@ -296,8 +296,7 @@ map.addControl(slider);
 
 var zoom_ex = new ol.control.ZoomToExtent({
     extent: [
-        65.90, 7.48,
-        98.96, 40.30
+        105, 10.08, 107, 10.7
     ]
 });
 map.addControl(zoom_ex);
@@ -1310,8 +1309,8 @@ function clear_all() {
     if (popup) {
         popup.hide();
     }
-    map.getView().fit([65.90, 7.48, 98.96, 40.30], {
-        duration: 1590,
+    map.getView().fit([105, 10.08, 107, 10.7], {
+        duration: 1000,
         size: map.getSize()
     });
 
@@ -1343,6 +1342,12 @@ function clear_all() {
         overlays.getLayers().remove(layer);
 
     });
+    overlays3.getLayers().getArray().slice().forEach(layer => {
+
+        overlays3.getLayers().remove(layer);
+
+    });
+
 
     layerSwitcher.renderPanel();
 
