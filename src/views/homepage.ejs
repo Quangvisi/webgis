@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <%- include('include/_header'); -%>
+        <!-- CSS only -->
+        <link href="/openlayers_app/libs/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- JavaScript Bundle with Popper -->
+        <script type="text/javascript"
+            src="/openlayers_app/libs/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- jquery -->
+        <script src="/openlayers_app/libs/jquery.js"></script>
+
+        <!-- ol -->
+        <script type="text/javascript" src="/openlayers_app/libs/v6.13.0-dist/ol.js"></script>
+        <link rel="stylesheet" href="/openlayers_app/libs/v6.13.0-dist/ol.css">
+        <!-- ol-layerswitcher -->
+        <script type="text/javascript"
+            src="/openlayers_app/libs/ol-layerswitcher-master/dist/ol-layerswitcher.js"></script>
+        <link rel="stylesheet" href="/openlayers_app/libs/ol-layerswitcher-master/dist/ol-layerswitcher.css" />
+        <!-- ol-geocoder -->
+        <script type="text/javascript" src="/openlayers_app/libs/ol-geocoder/ol-geocoder.js"></script>
+        <link rel="stylesheet" href="/openlayers_app/libs/ol-geocoder/ol-geocoder.css" />
+        <!-- ol-popup -->
+        <script type="text/javascript" src="/openlayers_app/libs/ol-popup/ol-popup.js"></script>
+        <link rel="stylesheet" href="/openlayers_app/libs/ol-popup/ol-popup.css" />
+
+        <!-- jquery-ui -->
+        <link rel="stylesheet" href="/openlayers_app/libs/jquery-ui-1.12.1/jquery-ui.css">
+        <script type="text/javascript" src="/openlayers_app/libs/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+        <script type="text/javascript" src="/openlayers_app/libs/jquery-ui-1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="/openlayers_app/styleol.css">
+</head>
+
+<body>
+    <div class="menu"><%- include('include/_nav'); -%></div>
+
+    <div id="map" class="map">
+
+        <div id="scale_bar"></div>
+        <div id="scale_bar1"></div>
+        <button onclick="wms_layers()" type="button" id="wms_layers_btn" class="btn btn-success btn-sm">Các lớp dữ liệu
+            WMS</button>
+        <button onclick="clear_all()" type="button" id="clear_btn" class="btn btn-warning btn-sm">Làm mới</button>
+        <button onclick="show_hide_querypanel()" type="button" id="query_panel_btn" class="btn btn-success btn-sm">☰ Mở
+            bảng
+            truy vấn</button>
+        <div id="legend"></div>
+        <button onclick="show_hide_legend()" type="button" id="legend_btn" class="btn btn-success btn-sm">☰ Bật Ghi
+            chú</button>
+        <button onclick="info()" type="button" id="info_btn" class="btn btn-success btn-sm">☰ Bật Xem thông tin</button>
+
+        <select id="measuretype" class="form-select form-select-sm" aria-label=".form-select-sm example">
+            <option value="select">Chọn kiểu đo lường</option>
+            <option value="length">Chiều dài</option>
+            <option value="area">Diện tích</option>
+            <option value="clear">Xóa đo lường</option>
+        </select>
+
+    </div>
+    <div id="query_tab">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist" style="font-size:14px;">
+                <button class="nav-link active" id="nav-attributes-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-attributes" type="button" role="tab" aria-controls="nav-attributes"
+                    aria-selected="true">Chọn theo thuộc tính</button>
+                <button class="nav-link" id="nav-draw-tab" data-bs-toggle="tab" data-bs-target="#nav-draw" type="button"
+                    role="tab" aria-controls="nav-draw" aria-selected="false">Chọn bằng cách vẽ</button>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-attributes" role="tabpanel"
+                aria-labelledby="nav-attributes-tab">
+                <label for="layer"><b>Chọn lớp</b></label>
+                <select id="layer" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    <option selected>Chọn lớp</option>
+                </select>
+                <br>
+                <label for="attributes"><b>Chọn thuộc tính</b></label>
+                <select id="attributes" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    <option selected>Chọn thuộc tính</option>
+                </select>
+                <br>
+                <label for="operator"><b>Chọn cách tính</b></label>
+                <select id="operator" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    <option selected>Chọn cách tính</option>
+                </select>
+                <br>
+                <label for="value">Nhập giá trị</label>
+                <input type="text" class="form-control form-select-sm" id="value" name="value">
+                <br>
+                <button onclick="query()" type="button" class="btn btn-danger btn-sm">Truy vấn</button>
+
+            </div>
+            <div class="tab-pane fade" id="nav-draw" role="tabpanel" aria-labelledby="nav-draw-tab">
+                <label for="layer1"><b>Chọn lớp</b></label>
+                <select id="layer1" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    <option selected>Chọn lớp</option>
+                </select>
+                <br>
+                <label for="draw_type"><b>Chọn kiểu hình học</b></label>
+                <select id="draw_type" class="form-select form-select-sm" aria-label=".form-select-sm example">
+
+                    <option value="select">Chọn hình dạng</option>
+                    <option value="Square">Hình vuông</option>
+                    <option value="Box">Hộp</option>
+                    <option value="Polygon">Vùng</option>
+                    <option value="Star">Hình sao</option>
+                    <option value="clear">Xóa</option>
+                </select>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div id="table_data" style="font-size:15px;"></div>
+    <!-- Scrollable modal -->
+
+    <div class="modal fade" id="wms_layers_window" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Các lớp dữ liệu WMS</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table id="table_wms_layers" class="table table-hover" style="font-size:15px;">
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="close_wms_window()" type="button" class="btn btn-secondary btn-sm"
+                        data-bs-dismiss="modal">Đóng</button>
+                    <button onclick="add_layer()" type="button" id="add_map_btn" class="btn btn-primary btn-sm">Thêm dữ
+                        liệu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/openlayers_app/map.js"></script>
+
+
+</body>
+
+</html>
