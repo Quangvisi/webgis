@@ -58,8 +58,8 @@ overlays3 = new ol.layer.Group({
             title: 'Cống ngăn mặn',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_Tiengiang:Cống ngăn mặn' },
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Cống ngăn mặn' },
                 ratio: 1,
                 serverType: 'geoserver'
             })
@@ -68,8 +68,8 @@ overlays3 = new ol.layer.Group({
             title: 'Đất nhiễm mặn',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_Tiengiang:Đất nhiễm mặn' },
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Đất nhiễm mặn' },
                 ratio: 1,
                 serverType: 'geoserver'
             })
@@ -78,8 +78,8 @@ overlays3 = new ol.layer.Group({
             title: 'Trạm môi trường không khí',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_Tiengiang:Trạm môi trường không khí' },
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Trạm môi trường không khí' },
                 ratio: 1,
                 serverType: 'geoserver'
             })
@@ -88,8 +88,8 @@ overlays3 = new ol.layer.Group({
             title: 'Hiện trạng môi trường nước biển',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_Tiengiang:Hiện trạng môi trường nước biển' },
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Hiện trạng môi trường nước biển' },
                 ratio: 1,
                 serverType: 'geoserver'
             })
@@ -98,8 +98,8 @@ overlays3 = new ol.layer.Group({
             title: 'Hiện trạng môi trường nước mặt',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_Tiengiang:Hiện trạng môi trường nước mặt' },
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Hiện trạng môi trường nước mặt' },
                 ratio: 1,
                 serverType: 'geoserver'
             })
@@ -108,8 +108,8 @@ overlays3 = new ol.layer.Group({
             title: 'Trạm môi trường không khí',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_Tiengiang:Trạm môi trường không khí' },
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Trạm môi trường không khí' },
                 ratio: 1,
                 serverType: 'geoserver'
             })
@@ -118,8 +118,8 @@ overlays3 = new ol.layer.Group({
             title: 'Trạm môi trường nước biển',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_Tiengiang:Trạm môi trường nước biển' },
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Trạm môi trường nước biển' },
                 ratio: 1,
                 serverType: 'geoserver'
             })
@@ -128,8 +128,8 @@ overlays3 = new ol.layer.Group({
             title: 'Trạm môi trường nước mặt',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_Tiengiang:Trạm môi trường nước mặt' },
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Trạm môi trường nước mặt' },
                 ratio: 1,
                 serverType: 'geoserver'
             })
@@ -138,28 +138,119 @@ overlays3 = new ol.layer.Group({
             title: 'Nguồn ô nhiễm môi trường nước',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_Tiengiang:Nguồn ô nhiễm môi trường nước' },
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Nguồn ô nhiễm môi trường nước' },
                 ratio: 1,
                 serverType: 'geoserver'
             })
         }),
         new ol.layer.Image({
-            title: 'Nhạy cảm đường bờ với tràn dầu',
+            title: 'Đường bờ nhạy cảm với tràn dầu',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_Tiengiang:Nhạy cảm đường bờ với tràn dầu' },
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Đường bờ nhạy cảm với tràn dầu' },
+                ratio: 1,
+                serverType: 'geoserver'
+            })
+        }),
+
+        new ol.layer.Image({
+            title: 'Hành lang bảo vệ bờ biển',
+            // extent: [-180, -90, -180, 90],
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Hành lang bảo vệ bờ biển' },
                 ratio: 1,
                 serverType: 'geoserver'
             })
         }),
         new ol.layer.Image({
-            title: 'Trạm đo độ mặn',
+            title: 'Giao khu vực biển',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_Tiengiang:Trạm đo độ mặn' },
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Giao khu vực biển' },
+                ratio: 1,
+                serverType: 'geoserver'
+            })
+        }),
+        new ol.layer.Image({
+            title: 'Hệ sinh thái bãi triều',
+            // extent: [-180, -90, -180, 90],
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Hệ sinh thái bãi triều' },
+                ratio: 1,
+                serverType: 'geoserver'
+            })
+        }),
+        new ol.layer.Image({
+            title: 'Hệ sinh thái cửa sông ven biển',
+            // extent: [-180, -90, -180, 90],
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Hệ sinh thái cửa sông ven biển' },
+                ratio: 1,
+                serverType: 'geoserver'
+            })
+        }),
+        new ol.layer.Image({
+            title: 'Khu bảo tồn',
+            // extent: [-180, -90, -180, 90],
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Khu bảo tồn' },
+                ratio: 1,
+                serverType: 'geoserver'
+            })
+        }),
+        new ol.layer.Image({
+            title: 'Rừng ngập mặn',
+            // extent: [-180, -90, -180, 90],
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Rừng ngập mặn' },
+                ratio: 1,
+                serverType: 'geoserver'
+            })
+        }),
+        new ol.layer.Image({
+            title: 'Thủy hệ',
+            // extent: [-180, -90, -180, 90],
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Thủy hệ' },
+                ratio: 1,
+                serverType: 'geoserver'
+            })
+        }),
+        new ol.layer.Image({
+            title: 'Thủy hệ ven biển',
+            // extent: [-180, -90, -180, 90],
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Thủy hệ ven biển' },
+                ratio: 1,
+                serverType: 'geoserver'
+            })
+        }),
+        new ol.layer.Image({
+            title: 'Trầm tích',
+            // extent: [-180, -90, -180, 90],
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Trầm tích' },
+                ratio: 1,
+                serverType: 'geoserver'
+            })
+        }),
+        new ol.layer.Image({
+            title: 'Động vật phù du',
+            // extent: [-180, -90, -180, 90],
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Động vật phù du' },
                 ratio: 1,
                 serverType: 'geoserver'
             })
@@ -170,15 +261,46 @@ overlays2 = new ol.layer.Group({
     'title': 'Dữ liệu hành chính',
     layers: [
         new ol.layer.Image({
-            title: 'Hành chính Huyện',
+            title: 'Hành chính huyện',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_Tiengiang:Hành chính Huyện' },
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Hành chính huyện' },
                 ratio: 1,
                 serverType: 'geoserver'
             })
         }),
+        new ol.layer.Image({
+            title: 'Ranh giới địa chất thủy văn',
+            // extent: [-180, -90, -180, 90],
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Ranh giới địa chất thủy văn' },
+                ratio: 1,
+                serverType: 'geoserver'
+            })
+        }),
+        new ol.layer.Image({
+            title: 'Giao thông thủy',
+            // extent: [-180, -90, -180, 90],
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Giao thông thủy' },
+                ratio: 1,
+                serverType: 'geoserver'
+            })
+        }),
+        new ol.layer.Image({
+            title: 'Đường giao thông',
+            // extent: [-180, -90, -180, 90],
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Đường giao thông' },
+                ratio: 1,
+                serverType: 'geoserver'
+            })
+        }),
+
     ]
 });
 overlays = new ol.layer.Group({
@@ -188,8 +310,8 @@ overlays = new ol.layer.Group({
             title: 'Trạm khí tượng',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_Tiengiang:Trạm khí tượng' },
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Trạm khí tượng' },
                 ratio: 1,
                 serverType: 'geoserver'
             })
@@ -198,8 +320,8 @@ overlays = new ol.layer.Group({
             title: 'Trạm hải văn',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_Tiengiang:Trạm hải văn' },
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Trạm hải văn' },
                 ratio: 1,
                 serverType: 'geoserver'
             })
@@ -208,8 +330,8 @@ overlays = new ol.layer.Group({
             title: 'Trạm thủy văn',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_Tiengiang:Trạm thủy văn' },
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Trạm thủy văn' },
                 ratio: 1,
                 serverType: 'geoserver'
             })
@@ -218,8 +340,8 @@ overlays = new ol.layer.Group({
             title: 'Trạm dòng chảy',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_Tiengiang:Trạm dòng chảy' },
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Trạm dòng chảy' },
                 ratio: 1,
                 serverType: 'geoserver'
             })
@@ -228,8 +350,8 @@ overlays = new ol.layer.Group({
             title: 'Chế độ gió',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_Tiengiang:Chế độ gió' },
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Chế độ gió' },
                 ratio: 1,
                 serverType: 'geoserver'
             })
@@ -238,8 +360,8 @@ overlays = new ol.layer.Group({
             title: 'Chế độ sóng',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_Tiengiang:Chế độ sóng' },
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Chế độ sóng' },
                 ratio: 1,
                 serverType: 'geoserver'
             })
@@ -248,8 +370,78 @@ overlays = new ol.layer.Group({
             title: 'Đường di chuyển của bão ',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
-                params: { 'LAYERS': '	CSDL_Tiengiang:Đường di chuyển của bão' },
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Đường di chuyển của bão' },
+                ratio: 1,
+                serverType: 'geoserver'
+            })
+        }),
+        new ol.layer.Image({
+            title: 'Trạm đo mặn',
+            // extent: [-180, -90, -180, 90],
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Trạm đo mặn' },
+                ratio: 1,
+                serverType: 'geoserver'
+            })
+        }),
+        new ol.layer.Image({
+            title: 'Đường mực nước triều',
+            // extent: [-180, -90, -180, 90],
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Đường mực nước triều' },
+                ratio: 1,
+                serverType: 'geoserver'
+            })
+        }),
+        new ol.layer.Image({
+            title: 'Đường đẳng sâu',
+            // extent: [-180, -90, -180, 90],
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Đường đẳng sâu' },
+                ratio: 1,
+                serverType: 'geoserver'
+            })
+        }),
+        new ol.layer.Image({
+            title: 'Địa chất thủy văn',
+            // extent: [-180, -90, -180, 90],
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Địa chất thủy văn' },
+                ratio: 1,
+                serverType: 'geoserver'
+            })
+        }),
+        new ol.layer.Image({
+            title: 'Địa mạo',
+            // extent: [-180, -90, -180, 90],
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Địa mạo' },
+                ratio: 1,
+                serverType: 'geoserver'
+            })
+        }),
+        new ol.layer.Image({
+            title: 'Điểm độ sâu',
+            // extent: [-180, -90, -180, 90],
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Điểm độ sâu' },
+                ratio: 1,
+                serverType: 'geoserver'
+            })
+        }),
+        new ol.layer.Image({
+            title: 'Số liệu bão thống kê',
+            // extent: [-180, -90, -180, 90],
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_TienGiang:Số liệu bão thống kê' },
                 ratio: 1,
                 serverType: 'geoserver'
             })
@@ -262,7 +454,7 @@ overlays = new ol.layer.Group({
             title: 'india_state',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
+                url: 'http://localhost:8080/geoserver/wms',
                 params: {
                     'LAYERS': 'india:india_state'
                 },
@@ -381,7 +573,7 @@ function legend() {
         for (let i = 0; i < no_layers; i++) {
             const entries = Object.entries(overlays.getLayers().item(i).getSource());
 
-            ar.push("http://geoserver.ngheanez.vn/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=" + entries[27][1].LAYERS);
+            ar.push("http://localhost:8080/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=" + entries[27][1].LAYERS);
         }
 
         // console.log(no_layers);
@@ -429,7 +621,7 @@ function legend() {
         for (let i = 0; i < no_layers; i++) {
             const entries = Object.entries(overlays3.getLayers().item(i).getSource());
 
-            ar.push("http://geoserver.ngheanez.vn/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=" + entries[27][1].LAYERS);
+            ar.push("http://localhost:8080/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=" + entries[27][1].LAYERS);
         }
 
         // console.log(no_layers);
@@ -476,7 +668,7 @@ function legend() {
         for (let i = 0; i < no_layers; i++) {
             const entries = Object.entries(overlays2.getLayers().item(i).getSource());
 
-            ar.push("http://geoserver.ngheanez.vn/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=" + entries[27][1].LAYERS);
+            ar.push("http://localhost:8080/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=" + entries[27][1].LAYERS);
         }
 
         // console.log(no_layers);
@@ -524,7 +716,7 @@ legend();
 $(document).ready(function () {
     $.ajax({
         type: "GET",
-        url: "http://geoserver.ngheanez.vn/geoserver/wfs?request=getCapabilities",
+        url: "http://localhost:8080/geoserver/wfs?request=getCapabilities",
         dataType: "xml",
         success: function (xml) {
             var select = $('#layer');
@@ -563,7 +755,7 @@ $(function () {
         $(document).ready(function () {
             $.ajax({
                 type: "GET",
-                url: "http://geoserver.ngheanez.vn/geoserver/wfs?service=WFS&request=DescribeFeatureType&version=1.1.0&typeName=" + value_layer,
+                url: "http://localhost:8080/geoserver/wfs?service=WFS&request=DescribeFeatureType&version=1.1.0&typeName=" + value_layer,
                 dataType: "xml",
                 success: function (xml) {
 
@@ -627,7 +819,7 @@ $(function () {
 $(document).ready(function () {
     $.ajax({
         type: "GET",
-        url: "http://geoserver.ngheanez.vn/geoserver/wfs?request=getCapabilities",
+        url: "http://localhost:8080/geoserver/wfs?request=getCapabilities",
         dataType: "xml",
         success: function (xml) {
             var select = $('#layer1');
@@ -728,7 +920,7 @@ function query() {
 
 
 
-    var url = "http://geoserver.ngheanez.vn/geoserver/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=" + value_layer + "&CQL_FILTER=" + value_attribute + "%20" + value_operator + "%20" + value_txt + "&outputFormat=application/json"
+    var url = "http://localhost:8080/geoserver/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=" + value_layer + "&CQL_FILTER=" + value_attribute + "%20" + value_operator + "%20" + value_txt + "&outputFormat=application/json"
     //console.log(url);
 
     style = new ol.style.Style({
@@ -1033,7 +1225,7 @@ function wms_layers() {
     $(document).ready(function () {
         $.ajax({
             type: "GET",
-            url: "http://geoserver.ngheanez.vn/geoserver/wms?request=getCapabilities",
+            url: "http://localhost:8080/geoserver/wms?request=getCapabilities",
             dataType: "xml",
             success: function (xml) {
                 $('#table_wms_layers').empty();
@@ -1125,7 +1317,7 @@ function add_layer() {
         title: layer_name,
         // extent: [-180, -90, -180, 90],
         source: new ol.source.ImageWMS({
-            url: 'http://geoserver.ngheanez.vn/geoserver/wms',
+            url: 'http://localhost:8080/geoserver/wms',
             params: {
                 'LAYERS': layer_name
             },
@@ -1135,7 +1327,7 @@ function add_layer() {
     });
     overlays.getLayers().push(layer_wms);
 
-    var url = 'http://geoserver.ngheanez.vn/geoserver/wms?request=getCapabilities';
+    var url = 'http://localhost:8080/geoserver/wms?request=getCapabilities';
     var parser = new ol.format.WMSCapabilities();
 
 
@@ -1213,7 +1405,7 @@ function getinfo(evt) {
 
             var layer_title = layer.get('title');
             var wmsSource = new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
+                url: 'http://localhost:8080/geoserver/wms',
                 params: {
                     'LAYERS': layer_title
                 },
@@ -1248,7 +1440,7 @@ function getinfo(evt) {
 
             var layer_title = layer.get('title');
             var wmsSource = new ol.source.ImageWMS({
-                url: 'http://geoserver.ngheanez.vn/geoserver/wms',
+                url: 'http://localhost:8080/geoserver/wms',
                 params: {
                     'LAYERS': layer_title
                 },
@@ -1563,7 +1755,7 @@ function add_draw_Interaction() {
                 var layer_name = document.getElementById("layer1");
                 var value_layer = layer_name.options[layer_name.selectedIndex].value;
 
-                var url = "http://geoserver.ngheanez.vn/geoserver/wfs?request=GetFeature&version=1.0.0&typeName=" + value_layer + "&outputFormat=json&cql_filter=INTERSECTS(the_geom," + wkt + ")";
+                var url = "http://localhost:8080/geoserver/wfs?request=GetFeature&version=1.0.0&typeName=" + value_layer + "&outputFormat=json&cql_filter=INTERSECTS(the_geom," + wkt + ")";
                 //alert(url);
 
 
