@@ -7,7 +7,7 @@ import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import session from "express-session";
 import passport from "passport";
-import { join } from 'mysql2/lib/constants/charset_encodings';
+// import { join } from 'mysql2/lib/constants/charset_encodings';
 import ejs from 'ejs';
 
 let app = express();

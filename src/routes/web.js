@@ -15,8 +15,9 @@ let router = express.Router();
 let initWebRoutes = (app) => {
 
     router.get("/user", loginController.checkLoggedIn, userController.getUser);
-    router.get("/vanban", loginController.checkLoggedIn, vanbanPageController.getVanbanPage);
-    router.get("/", loginController.checkLoggedIn, homePageController.getHomePage);
+    router.get("/admin", loginController.checkLoggedIn, vanbanPageController.getVanbanPage);
+    router.get("/", homePageController.getHomePageNoLogin);
+    router.get("/home", homePageController.getHomePage);
 
     router.post("/logout", loginController.postLogOut);
 

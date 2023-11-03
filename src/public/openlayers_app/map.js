@@ -156,11 +156,11 @@ overlays3 = new ol.layer.Group({
         }),
 
         new ol.layer.Image({
-            title: 'Hành lang bảo vệ bờ biển',
+            title: 'l_hltiengiang',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
                 url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Hành lang bảo vệ bờ biển' },
+                params: { 'LAYERS': 'CSDLhanhlang:l_hltiengiang' },
                 ratio: 1,
                 serverType: 'geoserver'
             })

@@ -5,6 +5,14 @@ let getHomePage = (req, res) => {
     })
 };
 
+
+let getHomePageNoLogin = (req, res) => {
+    return res.render("homepage_nologin.ejs", {
+        title: 'Trang chủ',
+        user: req.user
+    })
+};
 module.exports = {
-    getHomePage: getHomePage
+    getHomePage: getHomePage,
+    getHomePageNoLogin: getHomePageNoLogin
 };

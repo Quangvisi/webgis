@@ -66,64 +66,6 @@
         </select>
 
     </div>
-    <div id="query_tab">
-        <nav>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist" style="font-size:14px;">
-                <button class="nav-link active" id="nav-attributes-tab" data-bs-toggle="tab"
-                    data-bs-target="#nav-attributes" type="button" role="tab" aria-controls="nav-attributes"
-                    aria-selected="true">Chọn theo thuộc tính</button>
-                <button class="nav-link" id="nav-draw-tab" data-bs-toggle="tab" data-bs-target="#nav-draw" type="button"
-                    role="tab" aria-controls="nav-draw" aria-selected="false">Chọn bằng cách vẽ</button>
-            </div>
-        </nav>
-        <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-attributes" role="tabpanel"
-                aria-labelledby="nav-attributes-tab">
-                <label for="layer"><b>Chọn lớp</b></label>
-                <select id="layer" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                    <option selected>Chọn lớp</option>
-                </select>
-                <br>
-                <label for="attributes"><b>Chọn thuộc tính</b></label>
-                <select id="attributes" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                    <option selected>Chọn thuộc tính</option>
-                </select>
-                <br>
-                <label for="operator"><b>Chọn cách tính</b></label>
-                <select id="operator" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                    <option selected>Chọn cách tính</option>
-                </select>
-                <br>
-                <label for="value">Nhập giá trị</label>
-                <input type="text" class="form-control form-select-sm" id="value" name="value">
-                <br>
-                <button onclick="query()" type="button" class="btn btn-danger btn-sm">Truy vấn</button>
-
-            </div>
-            <div class="tab-pane fade" id="nav-draw" role="tabpanel" aria-labelledby="nav-draw-tab">
-                <label for="layer1"><b>Chọn lớp</b></label>
-                <select id="layer1" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                    <option selected>Chọn lớp</option>
-                </select>
-                <br>
-                <label for="draw_type"><b>Chọn kiểu hình học</b></label>
-                <select id="draw_type" class="form-select form-select-sm" aria-label=".form-select-sm example">
-
-                    <option value="select">Chọn hình dạng</option>
-                    <option value="Square">Hình vuông</option>
-                    <option value="Box">Hộp</option>
-                    <option value="Polygon">Vùng</option>
-                    <option value="Star">Hình sao</option>
-                    <option value="clear">Xóa</option>
-                </select>
-
-
-            </div>
-
-        </div>
-
-    </div>
-
 
     <div id="table_data" style="font-size:15px;"></div>
     <!-- Scrollable modal -->
@@ -154,6 +96,9 @@
 
 
 </body>
-
+<script>
+    var element = document.getElementById("query_panel_btn");
+    element.style.display = "none";
+</script>
 
 </html>
