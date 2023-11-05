@@ -20,7 +20,7 @@ let compareUserPassword = (user, password) => {
         try {
             let match = await bcrypt.compare(password, user.password);
             if (match) resolve(true);
-            else resolve("The password that you've entered is incorrect")
+            else resolve("Mật khẩu bạn đã nhập không chính xác")
         } catch (e) {
             reject(e);
         }

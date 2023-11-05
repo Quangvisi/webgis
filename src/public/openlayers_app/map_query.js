@@ -10,11 +10,11 @@ var view = new ol.View({
     zoom: 10,
 
 });
-// var view_ov = new ol.View({
-//     projection: 'EPSG:4326',
-//     center: [106.36, 10.40],
-//     zoom: 7,
-// });
+var view_ov = new ol.View({
+    projection: 'EPSG:4326',
+    center: [106.36, 10.40],
+    zoom: 7,
+});
 
 
 var base_maps = new ol.layer.Group({
@@ -484,7 +484,19 @@ map.addControl(mouse_position);
 var slider = new ol.control.ZoomSlider();
 map.addControl(slider);
 
+var overview = new ol.control.OverviewMap({
+    view: view_ov,
+    collapseLabel: 'O',
+    label: 'O',
+    layers: [OSM]
+});
 
+map.addControl(overview);
+
+var full_sc = new ol.control.FullScreen({
+    label: 'F'
+});
+map.addControl(full_sc);
 
 var zoom_ex = new ol.control.ZoomToExtent({
     extent: [

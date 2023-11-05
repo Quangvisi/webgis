@@ -29,6 +29,26 @@ let checkLoggedIn = (req, res, next) => {
     next();
 };
 
+let checkRole = (requiredRole) => {
+    return (req, res, next) => {
+        if (!req.isAuthenticated()) {
+            return res.redirect("/login");
+        }
+
+        // Kiểm tra vai trò của người dùng (ví dụ: lấy từ req.user hoặc dựa trên cơ sở dữ liệu)
+        const userRole = req.user.role; // Giả sử bạn có một thuộc tính role trong đối tượng user
+
+        if (userRole === requiredRole) {
+            // Người dùng có vai trò phù hợp, tiếp tục xử lý
+            next();
+        } else {
+            // Người dùng không có vai trò phù hợp, chuyển hướng hoặc trả về lỗi
+            res.status(403).send("Bạn không có quyền truy cập trang này!");
+        }
+    };
+};
+
+
 let checkLoggedOut = (req, res, next) => {
     if (req.isAuthenticated()) {
         return res.redirect("/");
@@ -47,5 +67,6 @@ module.exports = {
     handleLogin: handleLogin,
     checkLoggedIn: checkLoggedIn,
     checkLoggedOut: checkLoggedOut,
-    postLogOut: postLogOut
+    postLogOut: postLogOut,
+    checkRole: checkRole
 };

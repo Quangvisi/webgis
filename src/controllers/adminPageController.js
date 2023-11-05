@@ -4,7 +4,14 @@ let getAdminPage = (req, res) => {
         user: req.user
     })
 };
+let getUserPageLogin = (req, res) => {
+    return res.render("userpage_login.ejs", {
+        title: 'Trang của User',
+        user: req.user
+    })
+};
 
 module.exports = {
-    getAdminPage: getAdminPage
+    getAdminPage: getAdminPage,
+    getUserPageLogin: getUserPageLogin
 };

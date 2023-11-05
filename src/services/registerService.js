@@ -18,7 +18,7 @@ let createNewUser = (user) => {
                 //create a new user
                 connection.query("INSERT INTO users set ? ", data, function (error, rows) {
                     if (error) reject(error);
-                    resolve("create a new user successfully");
+                    resolve("Tạo tài khoản mới thành công");
                 })
             }
             if (check === true)
