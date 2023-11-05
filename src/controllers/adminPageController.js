@@ -1,6 +1,6 @@
 let getAdminPage = (req, res) => {
     return res.render("adminpage.ejs", {
-        title: 'Văn bản',
+        title: 'Trang của Admin',
         user: req.user
     })
 };

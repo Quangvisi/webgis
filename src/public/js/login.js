@@ -13,10 +13,10 @@ function handleLoginBtn() {
                 if (data.role == "admin") {
                     window.location.href = "/admin";
                 }
-                else window.location.href = "/home";
+                else window.location.href = "/user";
             },
             error: function (err) {
-                alert("Your email or password entered is incorrect. Please try again!");
+                alert("Email hoặc password của bạn đã sai. Hãy thử lại!");
             }
         })
     });
