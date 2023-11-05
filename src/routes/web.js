@@ -12,10 +12,10 @@ initPassportLocal();
 let router = express.Router();
 
 let initWebRoutes = (app) => {
-    router.get("/account", loginController.checkLoggedIn, loginController.checkRole("admin"), adminPageController.getAdminPage);
-    router.get("/admin", loginController.checkLoggedIn, loginController.checkRole("admin"), adminPageController.getUserPageLogin);
-    router.get("/user", loginController.checkLoggedIn, userPageController.getUserPageNoLogin);
-    router.get("/", userPageController.getUserPageNoLogin);
+    router.get("/account", loginController.checkLoggedIn("admin", "/account"), adminPageController.getAdminPage);
+    router.get("/admin", loginController.checkLoggedIn("admin", "/admin"), adminPageController.getUserPageLogin);
+    router.get("/user", loginController.checkLoggedIn("user"), userPageController.getUserPageNoLogin);
+    router.get("/", userPageController.getHomePageNoLogin);
 
     router.post("/logout", loginController.postLogOut);
 

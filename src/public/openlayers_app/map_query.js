@@ -526,26 +526,26 @@ map.addControl(layerSwitcher);
 
 layerSwitcher.renderPanel();
 
-var geocoder = new Geocoder('nominatim', {
-    provider: 'osm',
-    lang: 'en',
-    placeholder: 'Search for ...',
-    limit: 5,
-    debug: false,
-    autoComplete: true,
-    keepOpen: true
-});
-map.addControl(geocoder);
+// var geocoder = new Geocoder('nominatim', {
+//     provider: 'osm',
+//     lang: 'en',
+//     placeholder: 'Search for ...',
+//     limit: 5,
+//     debug: false,
+//     autoComplete: true,
+//     keepOpen: true
+// });
+// map.addControl(geocoder);
 
-geocoder.on('addresschosen', function (evt) {
-    //console.info(evt);
-    if (popup) {
-        popup.hide();
-    }
-    window.setTimeout(function () {
-        popup.show(evt.coordinate, evt.address.formatted);
-    }, 3000);
-});
+// geocoder.on('addresschosen', function (evt) {
+//     //console.info(evt);
+//     if (popup) {
+//         popup.hide();
+//     }
+//     window.setTimeout(function () {
+//         popup.show(evt.coordinate, evt.address.formatted);
+//     }, 3000);
+// });
 
 //custom Scale
 

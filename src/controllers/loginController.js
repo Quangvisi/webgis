@@ -22,14 +22,9 @@ let handleLogin = (req, res, next) => {
     })(req, res, next);
 };
 
-let checkLoggedIn = (req, res, next) => {
-    if (!req.isAuthenticated()) {
-        return res.redirect("/login");
-    }
-    next();
-};
 
-let checkRole = (requiredRole) => {
+
+let checkLoggedIn = (requiredRole, redirectTo) => {
     return (req, res, next) => {
         if (!req.isAuthenticated()) {
             return res.redirect("/login");
@@ -39,14 +34,19 @@ let checkRole = (requiredRole) => {
         const userRole = req.user.role; // Giả sử bạn có một thuộc tính role trong đối tượng user
 
         if (userRole === requiredRole) {
-            // Người dùng có vai trò phù hợp, tiếp tục xử lý
-            next();
+            next(); // Người dùng có vai trò phù hợp, tiếp tục xử lý
         } else {
-            // Người dùng không có vai trò phù hợp, chuyển hướng hoặc trả về lỗi
-            res.status(403).send("Bạn không có quyền truy cập trang này!");
+            if (redirectTo) {
+                // Chuyển hướng người dùng đến trang mà bạn chỉ định nếu họ không có quyền
+                return res.redirect(redirectTo);
+            } else {
+                // Nếu không chỉ định trang chuyển hướng, trả về lỗi
+                res.status(403).send("Bạn không có quyền truy cập trang này.");
+            }
         }
     };
 };
+
 
 
 let checkLoggedOut = (req, res, next) => {
@@ -68,5 +68,5 @@ module.exports = {
     checkLoggedIn: checkLoggedIn,
     checkLoggedOut: checkLoggedOut,
     postLogOut: postLogOut,
-    checkRole: checkRole
+
 };
