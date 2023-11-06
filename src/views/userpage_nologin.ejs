@@ -11,62 +11,94 @@
         <%- include('include/_header_openlayer_query'); -%>
 
             <link rel="stylesheet" href="/openlayers_app/style_ol.css">
+            <style>
+                .bg-img {
+                    background-image: url("/img/acdf1a23eb763d286467.jpg");
+                    min-height: 100px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: 100% 100%;
+                    position: relative;
+                }
+
+                .custom-navbar {
+                    height: 36px;
+                    position: absolute;
+                    margin-top: -1px;
+                    padding: 0;
+                    left: 50%;
+                    /* Đặt left ở giữa */
+                    transform: translateX(-50%);
+                    /* Di chuyển container về bên trái 50% của chính nó */
+                    width: 100%;
+                    /* Đặt chiều rộng bằng 100% để nó căn theo chiều ngang */
+                    border-bottom: 2px solid blue;
+                    font-size: 14px;
+                    color: black;
+                    font-weight: bold;
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                    /* Đặt viền ngoài */
+                }
+            </style>
 </head>
 
 <body>
-    <div class="menu"><%- include('include/_nav'); -%></div>
+    <%- include('include/_nav'); -%>
+        <div id="map" class="map">
 
-    <div id="map" class="map">
+            <div id="scale_bar"></div>
+            <div id="scale_bar1"></div>
+            <button onclick="wms_layers()" type="button" id="wms_layers_btn" class="btn btn-success btn-sm">Các lớp dữ
+                liệu
+                WMS</button>
+            <button onclick="clear_all()" type="button" id="clear_btn" class="btn btn-warning btn-sm">Xóa tất cả dữ
+                liệu</button>
+            <button onclick="show_hide_querypanel()" type="button" id="query_panel_btn" class="btn btn-success btn-sm">☰
+                Mở
+                bảng
+                truy vấn</button>
+            <div id="legend"></div>
+            <button onclick="show_hide_legend()" type="button" id="legend_btn" class="btn btn-success btn-sm">☰ Bật Ghi
+                chú</button>
+            <button onclick="info()" type="button" id="info_btn" class="btn btn-success btn-sm">☰ Bật Xem thông
+                tin</button>
 
-        <div id="scale_bar"></div>
-        <div id="scale_bar1"></div>
-        <button onclick="wms_layers()" type="button" id="wms_layers_btn" class="btn btn-success btn-sm">Các lớp dữ liệu
-            WMS</button>
-        <button onclick="clear_all()" type="button" id="clear_btn" class="btn btn-warning btn-sm">Xóa tất cả dữ
-            liệu</button>
-        <button onclick="show_hide_querypanel()" type="button" id="query_panel_btn" class="btn btn-success btn-sm">☰ Mở
-            bảng
-            truy vấn</button>
-        <div id="legend"></div>
-        <button onclick="show_hide_legend()" type="button" id="legend_btn" class="btn btn-success btn-sm">☰ Bật Ghi
-            chú</button>
-        <button onclick="info()" type="button" id="info_btn" class="btn btn-success btn-sm">☰ Bật Xem thông tin</button>
+            <select id="measuretype" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option value="select">Chọn kiểu đo lường</option>
+                <option value="length">Chiều dài</option>
+                <option value="area">Diện tích</option>
+                <option value="clear">Xóa đo lường</option>
+            </select>
 
-        <select id="measuretype" class="form-select form-select-sm" aria-label=".form-select-sm example">
-            <option value="select">Chọn kiểu đo lường</option>
-            <option value="length">Chiều dài</option>
-            <option value="area">Diện tích</option>
-            <option value="clear">Xóa đo lường</option>
-        </select>
+        </div>
 
-    </div>
+        <div id="table_data" style="font-size:15px;"></div>
+        <!-- Scrollable modal -->
 
-    <div id="table_data" style="font-size:15px;"></div>
-    <!-- Scrollable modal -->
-
-    <div class="modal fade" id="wms_layers_window" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Các lớp dữ liệu WMS</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <table id="table_wms_layers" class="table table-hover" style="font-size:15px;">
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button onclick="close_wms_window()" type="button" class="btn btn-secondary btn-sm"
-                        data-bs-dismiss="modal">Đóng</button>
-                    <button onclick="add_layer()" type="button" id="add_map_btn" class="btn btn-primary btn-sm">Thêm dữ
-                        liệu</button>
+        <div class="modal fade" id="wms_layers_window" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Các lớp dữ liệu WMS</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table id="table_wms_layers" class="table table-hover" style="font-size:15px;">
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button onclick="close_wms_window()" type="button" class="btn btn-secondary btn-sm"
+                            data-bs-dismiss="modal">Đóng</button>
+                        <button onclick="add_layer()" type="button" id="add_map_btn" class="btn btn-primary btn-sm">Thêm
+                            dữ
+                            liệu</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script type="text/javascript" src="/openlayers_app/map_query.js"></script>
+        <script type="text/javascript" src="/openlayers_app/map_query.js"></script>
 
 
 </body>
@@ -77,6 +109,12 @@
     element2.style.display = "none";
     var element3 = document.getElementById("info_btn");
     element3.style.display = "none";
+    var element4 = document.getElementById("scale_bar1");
+    element4.style.display = "none";
+    var element5 = document.getElementById("clear_btn");
+    element5.style.display = "none";
+    var element6 = document.getElementById("measuretype");
+    element6.style.display = "none";
 </script>
 
 </html>

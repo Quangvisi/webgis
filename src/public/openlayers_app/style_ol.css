@@ -4,18 +4,18 @@
      padding: 0;
      margin: 0;
      font-family: arial;
-
  }
 
  #map {
-     position: absolute;
+     position: relative;
+     margin-top: 34px;
      left: 0%;
      width: 100%;
      height: 90%;
+     z-index: -1;
      /* border-style: solid;
      border-color: black;
      border-width: thin; */
-
  }
 
  #query_tab {
@@ -207,9 +207,9 @@
      max-width: 500px;
  }
 
- .ol-scale-step-text {
-     /* color: red; */
- }
+ /* .ol-scale-step-text { */
+ /* color: red; */
+ /* } */
 
  .ol-scale-text {
      /* color: red; */

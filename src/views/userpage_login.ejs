@@ -12,6 +12,35 @@
         <%- include('include/_header_openlayer_query'); -%>
 
             <link rel="stylesheet" href="/openlayers_app/style_ol.css">
+            <style>
+                .bg-img {
+                    background-image: url("/img/acdf1a23eb763d286467.jpg");
+                    min-height: 100px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: 100% 100%;
+                    position: relative;
+                }
+
+                .custom-navbar {
+                    height: 35px;
+                    position: absolute;
+                    margin-top: -1px;
+                    padding: 0;
+                    left: 50%;
+                    /* Đặt left ở giữa */
+                    transform: translateX(-50%);
+                    /* Di chuyển container về bên trái 50% của chính nó */
+                    width: 100%;
+                    /* Đặt chiều rộng bằng 100% để nó căn theo chiều ngang */
+                    border-bottom: 2px solid blue;
+                    font-size: 14px;
+                    color: black;
+                    font-weight: bold;
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                    /* Đặt viền ngoài */
+                }
+            </style>
 </head>
 
 <body>
