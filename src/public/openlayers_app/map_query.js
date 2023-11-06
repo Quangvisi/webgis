@@ -998,6 +998,7 @@ function query() {
 
         var caption = document.createElement("caption");
         caption.setAttribute("id", "caption");
+        caption.setAttribute("style", "text-shadow: 1px 1px #fff;");
         caption.style.captionSide = 'top';
         caption.innerHTML = value_layer + " (Số lượng đối tượng: " + data.features.length + " )";
         table.appendChild(caption);
@@ -1589,6 +1590,7 @@ function show_hide_querypanel() {
         document.getElementById("query_panel_btn").setAttribute("class", "btn btn-danger btn-sm");
         document.getElementById("query_tab").style.visibility = "visible";
         document.getElementById("query_tab").style.width = "21%";
+        document.getElementById("query_tab").style.top = "134px";
         document.getElementById("map").style.width = "79%";
         document.getElementById("map").style.left = "21%";
 

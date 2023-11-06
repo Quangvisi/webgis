@@ -1,21 +1,22 @@
  html,
  body {
+     position: relative;
      height: 100%;
      padding: 0;
      margin: 0;
-     font-family: arial;
+     z-index: -1000;
  }
 
  #map {
      position: relative;
-     margin-top: 34px;
+     top: 34px;
      left: 0%;
      width: 100%;
-     height: 90%;
+     height: 80%;
      z-index: -1;
      /* border-style: solid;
-     border-color: black;
-     border-width: thin; */
+     border-color: black; */
+     /* border-width: thin; */
  }
 
  #query_tab {
@@ -23,9 +24,9 @@
      padding: 0.5% 0%;
      left: 0%;
      width: 0%;
-     height: 100%;
-     /* border-style: solid; */
-     /* border-color: black; */
+     height: 500px;
+     /* border-style: solid;
+     border-color: rgb(255, 0, 0); */
      /* border-width: thin; */
      visibility: hidden;
      /* overflow: scroll; */
@@ -87,6 +88,7 @@
      left: 0%;
      right: 0%;
      height: 0%;
+
      /* border: 1px solid #4CAF50; */
  }
 
@@ -94,7 +96,6 @@
      white-space: nowrap;
      grid-template-areas: "head-fixed" "body-scrollable";
  }
-
 
  #table th {
      position: -webkit-sticky;

@@ -37,11 +37,48 @@
                 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
                 /* Đặt viền ngoài */
             }
+
+            .custom-table {
+                margin-top: 50px;
+            }
         </style>
 </head>
 
 <body>
     <%- include('include/_nav'); -%>
+
+        <div class="container custom-table">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Tên tài liệu</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <%- include('include/_footer'); -%>
 
