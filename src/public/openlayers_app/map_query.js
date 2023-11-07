@@ -54,16 +54,7 @@ var OSM = new ol.layer.Tile({
 overlays3 = new ol.layer.Group({
     'title': 'Dữ liệu Môi trường biển',
     layers: [
-        new ol.layer.Image({
-            title: 'Cống ngăn mặn',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Cống ngăn mặn' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
+
         new ol.layer.Image({
             title: 'Đất nhiễm mặn',
             // extent: [-180, -90, -180, 90],
@@ -306,6 +297,16 @@ overlays2 = new ol.layer.Group({
 overlays = new ol.layer.Group({
     'title': 'Dữ liệu khí tượng thủy văn',
     layers: [
+        new ol.layer.Image({
+            title: 'tramkhituong',
+            // extent: [-180, -90, -180, 90],
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8080/geoserver/wms',
+                params: { 'LAYERS': 'CSDL_Tiengiang:tramkhituong' },
+                ratio: 1,
+                serverType: 'geoserver'
+            })
+        }),
         new ol.layer.Image({
             title: 'Trạm khí tượng',
             // extent: [-180, -90, -180, 90],

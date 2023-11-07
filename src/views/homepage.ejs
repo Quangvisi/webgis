@@ -9,43 +9,66 @@
         Trang chủ
     </title>
     <%- include('include/_header'); -%>
-        <style>
-            .bg-img {
-                background-image: url("/img/acdf1a23eb763d286467.jpg");
-                min-height: 100px;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: 100% 100%;
-                position: relative;
-            }
+        <%- include('include/_nav_style'); -%>
 
-            .custom-navbar {
-                height: 35px;
-                position: absolute;
-                margin-top: -1px;
-                padding: 0;
-                left: 50%;
-                /* Đặt left ở giữa */
-                transform: translateX(-50%);
-                /* Di chuyển container về bên trái 50% của chính nó */
-                width: 100%;
-                /* Đặt chiều rộng bằng 100% để nó căn theo chiều ngang */
-                border-bottom: 2px solid blue;
-                font-size: 14px;
-                color: black;
-                font-weight: bold;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-                /* Đặt viền ngoài */
-            }
-
-            .custom-table {
-                margin-top: 50px;
-            }
-        </style>
 </head>
 
 <body>
     <%- include('include/_nav'); -%>
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Tên tài liệu</th>
+                    <th scope="col">Mở tài liệu</th>
+                    <th scope="col">Tải tài liệu</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
 
         <div class="container custom-table">
             <table class="table">
@@ -53,35 +76,79 @@
                     <tr>
                         <th scope="col">STT</th>
                         <th scope="col">Tên tài liệu</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Mở tài liệu</th>
+                        <th scope="col">Tải tài liệu</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <td>
+                            <a>Các tài liệu về khí tượng thủy văn</a>
+                        </td>
+                        <td>
+                            <button onclick="openPopup('/doc/Nguyen-Viet-Ha-TopCV.vn-230522.160909.pdf')"></button>
+                        </td>
+                        <td> <a href="/doc/Nguyen-Viet-Ha-TopCV.vn-230522.160909.pdf" download>
+                                <span class="bi bi-download"></span>
+                            </a>
                     </tr>
+
                     <tr>
                         <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
+                        <td>
+                            <a>Các tài liệu về môi trường</a>
+                        </td>
+                        <td>
+                            <a onclick="openPopup('/doc/Nguyen-Viet-Ha-TopCV.vn-230522.160909.pdf')">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                                    class="bi bi-book" viewBox="0 0 30 30">
+                                    <path
+                                        d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
+                                </svg>
+                            </a>
+                            <button onclick="openPopup('/doc/Nguyen-Viet-Ha-TopCV.vn-230522.160909.pdf')"></button>
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <a href="/doc/Nguyen-Viet-Ha-TopCV.vn-230522.160909.pdf" download>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                                    class="bi bi-box-arrow-in-down" viewBox="0 0 30 30">
+                                    <path fill-rule="evenodd"
+                                        d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1h-2z" />
+                                    <path fill-rule="evenodd"
+                                        d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+                                </svg>
+                            </a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
+        </div>
+
+        <div id="popup" style="display: none;">
+            <iframe id="popupFrame" width="800" height="600" frameborder="0"></iframe>
+            <button onclick="closePopup()">Đóng</button>
+        </div>
+
+
         <%- include('include/_footer'); -%>
 
+            <script>
+                function openPopup(filePath) {
+                    var popup = document.getElementById("popup");
+                    var popupFrame = document.getElementById("popupFrame");
+
+                    popupFrame.src = filePath;
+                    popup.style.display = "block";
+                }
+                function closePopup() {
+                    var popup = document.getElementById("popup");
+                    popup.style.display = "none";
+                }
+            </script>
 </body>
 
 </html>
