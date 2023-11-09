@@ -1,12 +1,12 @@
 let getAdminPage = (req, res) => {
-    return res.render("adminpage.ejs", {
-        title: 'Trang của Admin',
+    return res.render("accountpage.ejs", {
+        title: 'Trang quản lý account',
         user: req.user
     })
 };
 let getUserPageLogin = (req, res) => {
-    return res.render("userpage_login.ejs", {
-        title: 'Trang của User',
+    return res.render("userpage_admin.ejs", {
+        title: 'Bản đồ',
         user: req.user
     })
 };

@@ -1,4 +1,4 @@
-var map, geojson, featureOverlay, overlays, style;
+var map, geojson, featureOverlay, style;
 var selected, features, layer_name, layerControl;
 var content;
 var selectedFeature;
@@ -51,402 +51,263 @@ var OSM = new ol.layer.Tile({
     title: 'OSM',
 });
 
-overlays3 = new ol.layer.Group({
-    'title': 'Dữ liệu Môi trường biển',
-    layers: [
+// var overlays3 = new ol.layer.Group({
+//     'title': 'Dữ liệu Môi trường biển',
+//     layers: [
 
-        new ol.layer.Image({
-            title: 'Đất nhiễm mặn',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Đất nhiễm mặn' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Trạm môi trường không khí',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Trạm môi trường không khí' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Hiện trạng môi trường nước biển',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Hiện trạng môi trường nước biển' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Hiện trạng môi trường nước mặt',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Hiện trạng môi trường nước mặt' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Trạm môi trường không khí',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Trạm môi trường không khí' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Trạm môi trường nước biển',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Trạm môi trường nước biển' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Trạm môi trường nước mặt',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Trạm môi trường nước mặt' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Nguồn ô nhiễm môi trường nước',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Nguồn ô nhiễm môi trường nước' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Đường bờ nhạy cảm với tràn dầu',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Đường bờ nhạy cảm với tràn dầu' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
+//         new ol.layer.Image({
+//             title: 'Đất nhiễm mặn',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Đất nhiễm mặn' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
+//         new ol.layer.Image({
+//             title: 'Trạm môi trường không khí',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Trạm môi trường không khí' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
+//         new ol.layer.Image({
+//             title: 'Hiện trạng môi trường nước biển',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Hiện trạng môi trường nước biển' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
+//         new ol.layer.Image({
+//             title: 'Hiện trạng môi trường nước mặt',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Hiện trạng môi trường nước mặt' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
+//         new ol.layer.Image({
+//             title: 'Trạm môi trường không khí',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Trạm môi trường không khí' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
+//         new ol.layer.Image({
+//             title: 'Trạm môi trường nước biển',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Trạm môi trường nước biển' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
+//         new ol.layer.Image({
+//             title: 'Trạm môi trường nước mặt',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Trạm môi trường nước mặt' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
+//         new ol.layer.Image({
+//             title: 'Nguồn ô nhiễm môi trường nước',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Nguồn ô nhiễm môi trường nước' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
+//         new ol.layer.Image({
+//             title: 'Đường bờ nhạy cảm với tràn dầu',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Đường bờ nhạy cảm với tràn dầu' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
 
-        new ol.layer.Image({
-            title: 'l_hltiengiang',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDLhanhlang:l_hltiengiang' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Giao khu vực biển',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Giao khu vực biển' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Hệ sinh thái bãi triều',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Hệ sinh thái bãi triều' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Hệ sinh thái cửa sông ven biển',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Hệ sinh thái cửa sông ven biển' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Khu bảo tồn',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Khu bảo tồn' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Rừng ngập mặn',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Rừng ngập mặn' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Thủy hệ',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Thủy hệ' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Thủy hệ ven biển',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Thủy hệ ven biển' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Trầm tích',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Trầm tích' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Động vật phù du',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Động vật phù du' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-    ]
-});
-overlays2 = new ol.layer.Group({
-    'title': 'Dữ liệu hành chính',
-    layers: [
-        new ol.layer.Image({
-            title: 'Hành chính huyện',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Hành chính huyện' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Ranh giới địa chất thủy văn',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Ranh giới địa chất thủy văn' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Giao thông thủy',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Giao thông thủy' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Đường giao thông',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Đường giao thông' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
+//         new ol.layer.Image({
+//             title: 'l_hltiengiang',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDLhanhlang:l_hltiengiang' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
+//         new ol.layer.Image({
+//             title: 'Giao khu vực biển',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Giao khu vực biển' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
+//         new ol.layer.Image({
+//             title: 'Hệ sinh thái bãi triều',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Hệ sinh thái bãi triều' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
+//         new ol.layer.Image({
+//             title: 'Hệ sinh thái cửa sông ven biển',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Hệ sinh thái cửa sông ven biển' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
+//         new ol.layer.Image({
+//             title: 'Khu bảo tồn',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Khu bảo tồn' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
+//         new ol.layer.Image({
+//             title: 'Rừng ngập mặn',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Rừng ngập mặn' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
+//         new ol.layer.Image({
+//             title: 'Thủy hệ',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Thủy hệ' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
+//         new ol.layer.Image({
+//             title: 'Thủy hệ ven biển',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Thủy hệ ven biển' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
+//         new ol.layer.Image({
+//             title: 'Trầm tích',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Trầm tích' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
+//         new ol.layer.Image({
+//             title: 'Động vật phù du',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Động vật phù du' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
+//     ]
+// });
+// var overlays2 = new ol.layer.Group({
+//     'title': 'Dữ liệu hành chính',
+//     layers: [
+//         new ol.layer.Image({
+//             title: 'Hành chính huyện',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Hành chính huyện' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
+//         new ol.layer.Image({
+//             title: 'Ranh giới địa chất thủy văn',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Ranh giới địa chất thủy văn' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
+//         new ol.layer.Image({
+//             title: 'Giao thông thủy',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Giao thông thủy' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
+//         new ol.layer.Image({
+//             title: 'Đường giao thông',
+//             // extent: [-180, -90, -180, 90],
+//             source: new ol.source.ImageWMS({
+//                 url: 'http://localhost:8080/geoserver/wms',
+//                 params: { 'LAYERS': 'CSDL_TienGiang:Đường giao thông' },
+//                 ratio: 1,
+//                 serverType: 'geoserver'
+//             })
+//         }),
 
-    ]
-});
+//     ]
+// });
 overlays = new ol.layer.Group({
-    'title': 'Dữ liệu khí tượng thủy văn',
+    'title': 'Dữ liệu hành chính',
     layers: [
         new ol.layer.Image({
-            title: 'tramkhituong',
+            title: 'poly_landmarks',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
                 url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_Tiengiang:tramkhituong' },
+                params: { 'LAYERS': 'tiger:poly_landmarks' },
                 ratio: 1,
                 serverType: 'geoserver'
             })
         }),
-        new ol.layer.Image({
-            title: 'Trạm khí tượng',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Trạm khí tượng' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Trạm hải văn',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Trạm hải văn' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Trạm thủy văn',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Trạm thủy văn' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Trạm dòng chảy',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Trạm dòng chảy' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Chế độ gió',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Chế độ gió' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Chế độ sóng',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Chế độ sóng' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Đường di chuyển của bão ',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Đường di chuyển của bão' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Trạm đo mặn',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Trạm đo mặn' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Đường mực nước triều',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Đường mực nước triều' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Đường đẳng sâu',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Đường đẳng sâu' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Địa chất thủy văn',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Địa chất thủy văn' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Địa mạo',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Địa mạo' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Điểm độ sâu',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Điểm độ sâu' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
-        new ol.layer.Image({
-            title: 'Số liệu bão thống kê',
-            // extent: [-180, -90, -180, 90],
-            source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: { 'LAYERS': 'CSDL_TienGiang:Số liệu bão thống kê' },
-                ratio: 1,
-                serverType: 'geoserver'
-            })
-        }),
+
     ]
 });
 
@@ -472,9 +333,9 @@ map = new ol.Map({
 
 
 map.addLayer(base_maps);
-map.addLayer(overlays2);
 map.addLayer(overlays);
-map.addLayer(overlays3);
+// map.addLayer(overlays2);
+// map.addLayer(overlays3);
 
 //overlays.getLayers().push(ind_state);
 var popup = new Popup();
@@ -627,99 +488,99 @@ function legend() {
     };
     generateLegend(overlays);
 
-    const generateLegend3 = (overlays3) => {
-        const no_layers = overlays3.getLayers().getLength();
-        const ar = [];
+    // const generateLegend3 = (overlays3) => {
+    //     const no_layers = overlays3.getLayers().getLength();
+    //     const ar = [];
 
-        for (let i = 0; i < no_layers; i++) {
-            const entries = Object.entries(overlays3.getLayers().item(i).getSource());
+    //     for (let i = 0; i < no_layers; i++) {
+    //         const entries = Object.entries(overlays3.getLayers().item(i).getSource());
 
-            ar.push("http://localhost:8080/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=" + entries[27][1].LAYERS);
-        }
+    //         ar.push("http://localhost:8080/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=" + entries[27][1].LAYERS);
+    //     }
 
-        // console.log(no_layers);
+    //     // console.log(no_layers);
 
-        const element = document.getElementById('legend');
-        const head_khituong = document.createElement("div");
-        head_khituong.style.textTransform = "uppercase";
-        head_khituong.style.color = "black";
-        head_khituong.style.fontSize = "15px";
-        head_khituong.style.fontWeight = "bold";
-        const txt_khituong = document.createTextNode("Lớp dữ liệu môi trường");
-        head_khituong.appendChild(txt_khituong);
-        element.appendChild(head_khituong);
+    //     const element = document.getElementById('legend');
+    //     const head_khituong = document.createElement("div");
+    //     head_khituong.style.textTransform = "uppercase";
+    //     head_khituong.style.color = "black";
+    //     head_khituong.style.fontSize = "15px";
+    //     head_khituong.style.fontWeight = "bold";
+    //     const txt_khituong = document.createTextNode("Lớp dữ liệu môi trường");
+    //     head_khituong.appendChild(txt_khituong);
+    //     element.appendChild(head_khituong);
 
-        for (let i = 0; i < no_layers; i++) {
-            const head = document.createElement("div");
-            head.id = 'div-legend';
-            head.className = 'd-flex box-' + i;
+    //     for (let i = 0; i < no_layers; i++) {
+    //         const head = document.createElement("div");
+    //         head.id = 'div-legend';
+    //         head.className = 'd-flex box-' + i;
 
-            const head3 = document.createElement('div');
-            head.appendChild(head3);
-            const imagelegend = document.createElement("img");
-            imagelegend.src = ar[i];
-            imagelegend.className = 'mx-auto';
-            imagelegend.setAttribute('style', 'width: 20px; height: 20px;');
-            head3.appendChild(imagelegend);
+    //         const head3 = document.createElement('div');
+    //         head.appendChild(head3);
+    //         const imagelegend = document.createElement("img");
+    //         imagelegend.src = ar[i];
+    //         imagelegend.className = 'mx-auto';
+    //         imagelegend.setAttribute('style', 'width: 20px; height: 20px;');
+    //         head3.appendChild(imagelegend);
 
-            const txt = document.createTextNode(overlays3.getLayers().item(i).get('title'));
-            const textlegend = document.createElement('div');
-            textlegend.appendChild(txt);
-            textlegend.setAttribute('class', 'justify-content-start');
-            textlegend.setAttribute('style', 'margin-left: 20px');
-            head.appendChild(textlegend);
+    //         const txt = document.createTextNode(overlays3.getLayers().item(i).get('title'));
+    //         const textlegend = document.createElement('div');
+    //         textlegend.appendChild(txt);
+    //         textlegend.setAttribute('class', 'justify-content-start');
+    //         textlegend.setAttribute('style', 'margin-left: 20px');
+    //         head.appendChild(textlegend);
 
-            element.appendChild(head);
-        }
-    };
-    generateLegend3(overlays3);
+    //         element.appendChild(head);
+    //     }
+    // };
+    // generateLegend3(overlays3);
 
-    const generateLegend2 = (overlays2) => {
-        const no_layers = overlays2.getLayers().getLength();
-        const ar = [];
+    // const generateLegend2 = (overlays2) => {
+    //     const no_layers = overlays2.getLayers().getLength();
+    //     const ar = [];
 
-        for (let i = 0; i < no_layers; i++) {
-            const entries = Object.entries(overlays2.getLayers().item(i).getSource());
+    //     for (let i = 0; i < no_layers; i++) {
+    //         const entries = Object.entries(overlays2.getLayers().item(i).getSource());
 
-            ar.push("http://localhost:8080/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=" + entries[27][1].LAYERS);
-        }
+    //         ar.push("http://localhost:8080/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=" + entries[27][1].LAYERS);
+    //     }
 
-        // console.log(no_layers);
+    //     // console.log(no_layers);
 
-        const element = document.getElementById('legend');
-        const head_khituong = document.createElement("div");
-        head_khituong.style.textTransform = "uppercase";
-        head_khituong.style.color = "black";
-        head_khituong.style.fontSize = "15px";
-        head_khituong.style.fontWeight = "bold";
-        const txt_khituong = document.createTextNode("Lớp dữ liệu hành chính");
-        head_khituong.appendChild(txt_khituong);
-        element.appendChild(head_khituong);
+    //     const element = document.getElementById('legend');
+    //     const head_khituong = document.createElement("div");
+    //     head_khituong.style.textTransform = "uppercase";
+    //     head_khituong.style.color = "black";
+    //     head_khituong.style.fontSize = "15px";
+    //     head_khituong.style.fontWeight = "bold";
+    //     const txt_khituong = document.createTextNode("Lớp dữ liệu hành chính");
+    //     head_khituong.appendChild(txt_khituong);
+    //     element.appendChild(head_khituong);
 
-        for (let i = 0; i < no_layers; i++) {
-            const head = document.createElement("div");
-            head.id = 'div-legend';
-            head.className = 'd-flex box-' + i;
+    //     for (let i = 0; i < no_layers; i++) {
+    //         const head = document.createElement("div");
+    //         head.id = 'div-legend';
+    //         head.className = 'd-flex box-' + i;
 
-            const head3 = document.createElement('div');
-            head.appendChild(head3);
-            const imagelegend = document.createElement("img");
-            imagelegend.src = ar[i];
-            imagelegend.className = 'mx-auto';
-            imagelegend.setAttribute('style', 'width: 20px; height: 20px;');
-            head3.appendChild(imagelegend);
+    //         const head3 = document.createElement('div');
+    //         head.appendChild(head3);
+    //         const imagelegend = document.createElement("img");
+    //         imagelegend.src = ar[i];
+    //         imagelegend.className = 'mx-auto';
+    //         imagelegend.setAttribute('style', 'width: 20px; height: 20px;');
+    //         head3.appendChild(imagelegend);
 
-            const txt = document.createTextNode(overlays2.getLayers().item(i).get('title'));
-            const textlegend = document.createElement('div');
-            textlegend.appendChild(txt);
-            textlegend.setAttribute('class', 'justify-content-start');
-            textlegend.setAttribute('style', 'margin-left: 20px');
-            head.appendChild(textlegend);
+    //         const txt = document.createTextNode(overlays2.getLayers().item(i).get('title'));
+    //         const textlegend = document.createElement('div');
+    //         textlegend.appendChild(txt);
+    //         textlegend.setAttribute('class', 'justify-content-start');
+    //         textlegend.setAttribute('style', 'margin-left: 20px');
+    //         head.appendChild(textlegend);
 
-            element.appendChild(head);
-        }
-    };
-    generateLegend2(overlays2);
+    //         element.appendChild(head);
+    //     }
+    // };
+    // generateLegend2(overlays2);
 }
 
 legend();
@@ -934,7 +795,7 @@ function query() {
 
 
     var url = "http://localhost:8080/geoserver/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=" + value_layer + "&CQL_FILTER=" + value_attribute + "%20" + value_operator + "%20" + value_txt + "&outputFormat=application/json"
-    //console.log(url);
+
 
     style = new ol.style.Style({
         fill: new ol.style.Fill({
@@ -963,6 +824,7 @@ function query() {
 
     });
 
+
     geojson.getSource().on('addfeature', function () {
         //alert(geojson.getSource().getExtent());
         map.getView().fit(
@@ -974,6 +836,7 @@ function query() {
     });
 
     //overlays.getLayers().push(geojson);
+
     map.addLayer(geojson);
 
     $.getJSON(url, function (data) {
@@ -994,6 +857,7 @@ function query() {
 
 
         var table = document.createElement("table");
+        // console.log(1111, table);
         table.setAttribute("class", "table table-hover table-striped");
         table.setAttribute("id", "table");
 
@@ -1447,42 +1311,42 @@ function getinfo(evt) {
             });
         }
     });
-    overlays2.getLayers().getArray().slice().forEach(layer => {
-        var visibility = layer.getVisible();
-        console.log(visibility);
-        if (visibility == true) {
+    // overlays2.getLayers().getArray().slice().forEach(layer => {
+    //     var visibility = layer.getVisible();
+    //     console.log(visibility);
+    //     if (visibility == true) {
 
-            var layer_title = layer.get('title');
-            var wmsSource = new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/wms',
-                params: {
-                    'LAYERS': layer_title
-                },
-                serverType: 'geoserver',
-                crossOrigin: 'anonymous'
-            });
+    //         var layer_title = layer.get('title');
+    //         var wmsSource = new ol.source.ImageWMS({
+    //             url: 'http://localhost:8080/geoserver/wms',
+    //             params: {
+    //                 'LAYERS': layer_title
+    //             },
+    //             serverType: 'geoserver',
+    //             crossOrigin: 'anonymous'
+    //         });
 
-            var url = wmsSource.getFeatureInfoUrl(
-                evt.coordinate, viewResolution, 'EPSG:4326', {
-                'INFO_FORMAT': 'text/html'
-            });
-            // alert(url[i]);
-            //console.log(url);
+    //         var url = wmsSource.getFeatureInfoUrl(
+    //             evt.coordinate, viewResolution, 'EPSG:4326', {
+    //             'INFO_FORMAT': 'text/html'
+    //         });
+    //         // alert(url[i]);
+    //         //console.log(url);
 
-            //assuming you use jquery
-            $.get(url, function (data) {
+    //         //assuming you use jquery
+    //         $.get(url, function (data) {
 
-                // $("#popup-content").append(data);
-                //document.getElementById('popup-content').innerHTML = '<p>Feature Info</p><code>' + data + '</code>';
-                content += data;
-                // overlay.setPosition(coordinate);
-                popup.show(evt.coordinate, content);
+    //             // $("#popup-content").append(data);
+    //             //document.getElementById('popup-content').innerHTML = '<p>Feature Info</p><code>' + data + '</code>';
+    //             content += data;
+    //             // overlay.setPosition(coordinate);
+    //             popup.show(evt.coordinate, content);
 
 
-            });
-        }
+    //         });
+    //     }
 
-    });
+    // });
 
 }
 
@@ -1548,11 +1412,11 @@ function clear_all() {
         overlays.getLayers().remove(layer);
 
     });
-    overlays3.getLayers().getArray().slice().forEach(layer => {
+    // overlays3.getLayers().getArray().slice().forEach(layer => {
 
-        overlays3.getLayers().remove(layer);
+    //     overlays3.getLayers().remove(layer);
 
-    });
+    // });
 
 
     layerSwitcher.renderPanel();
