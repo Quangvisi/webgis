@@ -4,6 +4,7 @@ import loginController from "../controllers/loginController";
 import userPageController from "../controllers/userPageController";
 import adminPageController from "../controllers/adminPageController";
 import initPassportLocal from "../controllers/passportLocalController";
+import testPageController from "../controllers/testPageController";
 /*
 init passport routes
  */
@@ -16,6 +17,7 @@ let initWebRoutes = (app) => {
     router.get("/admin", loginController.checkLoggedIn("admin", "/admin"), adminPageController.getUserPageLogin);
     router.get("/user", loginController.checkLoggedIn("user"), userPageController.getUserPageNoLogin);
     router.get("/", userPageController.getHomePageNoLogin);
+    router.get("/test", testPageController.getTestPageNoLogin);
 
     router.post("/logout", loginController.postLogOut);
 

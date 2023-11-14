@@ -1,5 +1,10 @@
-let getHomePageNoLogin = (req, res) => {
+import tabledocService from "../services/tabledocService";
+
+let getHomePageNoLogin = async (req, res) => {
+    let linkDocument = await tabledocService.getLinkDocuments();
+    // console.log(111111, linkDocument);
     return res.render("homepage.ejs", {
+        linkDocument: linkDocument,
         title: 'Trang chủ',
         user: req.user
     })

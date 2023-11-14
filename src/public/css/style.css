@@ -16,3 +16,5 @@ fieldset {
 legend {
     width: auto !important;
 }
+
+.custom-modal-content {}
