@@ -14,6 +14,10 @@ let router = express.Router();
 
 let initWebRoutes = (app) => {
     router.get("/account", loginController.checkLoggedIn("admin", "/account"), adminPageController.getAdminPage);
+    router.post("/account/delete-user/:id", adminPageController.handleDeleteUser);
+    router.post("/update-user", adminPageController.handleUpdateUser);
+    router.get("/update-user/:id", adminPageController.getUpdateUserPage);
+
     router.get("/admin", loginController.checkLoggedIn("admin", "/admin"), adminPageController.getUserPageLogin);
     router.get("/user", loginController.checkLoggedIn("user"), userPageController.getUserPageNoLogin);
     router.get("/", userPageController.getHomePageNoLogin);
